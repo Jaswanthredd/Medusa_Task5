@@ -32,19 +32,6 @@ resource "aws_instance" "medusa_ec2" {
 
   provisioner "remote-exec" {
     inline = [
-
-      # Update the package database and install dependencies
-      "sudo apt-get update -y",
-      "sudo apt-get install -y docker.io",
-
-      # Download Docker Compose
-      "sudo curl -L \"https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)\" -o /usr/local/bin/docker-compose",
-
-      # Apply executable permissions to the binary
-      "sudo chmod +x /usr/local/bin/docker-compose",
-
-      # Check the version of Docker Compose to ensure it's installed
-      "docker-compose --version"
       "chmod +x /home/ubuntu/install.sh",
       "/home/ubuntu/install.sh"
     ]
