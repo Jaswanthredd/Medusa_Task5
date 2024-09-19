@@ -13,6 +13,22 @@ resource "aws_instance" "medusa_ec2" {
   key_name               = "Jaswanth"
   vpc_security_group_ids = ["sg-0850c1dc0c3cfdbfb"]
 
+    inline = [
+      # Update the package database and install dependencies
+      "sudo apt-get update -y",
+      "sudo apt-get install -y docker.io",
+
+      # Download Docker Compose
+      "sudo curl -L \"https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)\" -o /usr/local/bin/docker-compose",
+
+      # Apply executable permissions to the binary
+      "sudo chmod +x /usr/local/bin/docker-compose",
+
+      # Check the version of Docker Compose to ensure it's installed
+      "docker-compose --version"
+    ]
+
+
   tags = {
     Name = "MedusaEC2"
   }
