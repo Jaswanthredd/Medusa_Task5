@@ -5,6 +5,6 @@ sudo usermod -aG docker ubuntu
 sudo systemctl enable docker
 sudo systemctl start docker
 cd /home/ubuntu
-git clone https://github.com/SlayerK15/EC2Deploy.git
+git clone https://github.com/Jaswanthredd/EC2Deploy.git
 cd EC2Deploy
 sudo docker-compose up -d --build
