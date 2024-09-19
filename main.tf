@@ -10,7 +10,7 @@ variable "ec2_private_key" {
 resource "aws_instance" "medusa_ec2" {
   ami                    = "ami-0a0e5d9c7acc336f1" #ami id for ubuntu v22.04
   instance_type          = "t2.small" #instance_type small to procees tand avoid the timeout
-  key_name               = "Jashu"
+  key_name               = "Jaswanth"
   vpc_security_group_ids = ["sg-0850c1dc0c3cfdbfb"]
 
   tags = {
